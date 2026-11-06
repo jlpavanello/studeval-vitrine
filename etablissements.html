@@ -237,6 +237,25 @@ footer.pied{background:#16224A;color:#C9D2EA;border-top:0;padding:3rem 0 0;font-
 .pied-titre{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#fff;margin-bottom:.35rem!important}
 .pied-bas{border-top:1px solid rgba(255,255,255,.12);margin-top:2.6rem;padding-top:1.2rem;padding-bottom:1.4rem;font-size:.8rem;color:#98A3C4}
 @media (max-width:720px){.pied-haut{grid-template-columns:1fr 1fr}.pied-marque{grid-column:1/-1}}
+
+/* ---------- En-tête : les trois axes, qui apparaissent l'un après l'autre ---------- */
+.page-tete h1.axes{display:flex;flex-direction:column;align-items:center;gap:.15em;line-height:1.25}
+.page-tete h1.axes + .chapeau{margin-top:1.6rem}
+.axe-ligne{display:block}
+.axe{background:linear-gradient(var(--bleu-pale),var(--bleu-pale)) no-repeat left bottom .06em/100% .32em;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .12em}
+.axe-verbe{color:var(--bleu)}
+.axes-anime .axe-ligne{animation:axe-arrive .6s ease both}
+.axes-anime .axe{animation:axe-surligne .6s ease both}
+.axes-anime .axe-ligne:nth-child(2){animation-delay:.45s}
+.axes-anime .axe-ligne:nth-child(3){animation-delay:.9s}
+.axes-anime .axe-ligne:nth-child(1) .axe{animation-delay:.5s}
+.axes-anime .axe-ligne:nth-child(2) .axe{animation-delay:.95s}
+.axes-anime .axe-ligne:nth-child(3) .axe{animation-delay:1.4s}
+@keyframes axe-arrive{from{opacity:0;transform:translateY(.4em)}to{opacity:1;transform:none}}
+@keyframes axe-surligne{from{background-size:0% .32em}to{background-size:100% .32em}}
+@media (max-width:560px){.page-tete h1.axes{font-size:clamp(1.45rem,6.4vw,1.9rem)}}
+@media (prefers-reduced-motion:reduce){.axe-ligne,.axe{animation:none!important}}
 </style>
 </head>
 <body>
@@ -263,7 +282,9 @@ footer.pied{background:#16224A;color:#C9D2EA;border-top:0;padding:3rem 0 0;font-
 
   <div class="page-tete contenu">
     <span class="etiquette">Pour les établissements</span>
-    <h1>Mesurer les difficultés. Organiser la progression.</h1>
+    <h1 class="axes"><span class="axe-ligne"><span class="axe"><span class="axe-verbe">Mesurer</span> les difficultés.</span></span>
+      <span class="axe-ligne"><span class="axe"><span class="axe-verbe">Constituer</span> des groupes de besoins.</span></span>
+      <span class="axe-ligne"><span class="axe"><span class="axe-verbe">Organiser</span> la progression.</span></span></h1>
     <p class="chapeau">Stud'Éval donne à l'équipe de mathématiques un outil commun pour identifier les lacunes, mettre en place les parcours de remédiation et mesurer les progrès réalisés.</p>
   </div>
 
@@ -421,5 +442,13 @@ footer.pied{background:#16224A;color:#C9D2EA;border-top:0;padding:3rem 0 0;font-
 })();
 </script>
 
+<script>
+/* En-tête : les trois axes apparaissent l'un après l'autre, puis chacun se souligne.
+   Sans JavaScript, ou si le visiteur réduit les animations, les trois lignes s'affichent directement. */
+(function(){
+  var t = document.querySelector("h1.axes");
+  if (t && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) t.classList.add("axes-anime");
+})();
+</script>
 </body>
 </html>
