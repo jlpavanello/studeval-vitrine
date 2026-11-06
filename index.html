@@ -369,6 +369,18 @@ footer{
 @keyframes origine-trace{0%{stroke-dashoffset:100;opacity:1}38%{stroke-dashoffset:0}85%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
 @keyframes origine-pointe{0%,34%{opacity:0;transform:scale(.3)}44%{opacity:1;transform:scale(1.15)}50%,85%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
 @media (prefers-reduced-motion:reduce){.origine-anime .origine-trait,.origine-anime .origine-pointe{animation:none}}
+
+/* ---------- Côté professeur ---------- */
+.prof-section{border-top:1px solid var(--bleu-pale)}
+.prof-roles{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.2rem}
+.prof-roles li{background:#fff;border:1px solid var(--bleu-pale);border-radius:var(--rayon);padding:1.5rem 1.4rem;box-shadow:0 .5rem 1.4rem rgba(22,34,74,.06)}
+.prof-ico{display:flex;width:3rem;height:3rem;border-radius:.8rem;background:var(--bleu-pale);color:var(--bleu);align-items:center;justify-content:center}
+.prof-ico svg{width:1.5rem;height:1.5rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.prof-roles h3{margin-top:1rem;font-size:1.12rem;display:flex;align-items:baseline;gap:.5rem}
+.prof-roles h3 span{color:var(--bleu);font-weight:800;font-size:.95rem}
+.prof-roles p{margin-top:.45rem;color:var(--encre-douce);font-size:.98rem}
+.prof-roles li:nth-child(2){transition-delay:.12s}.prof-roles li:nth-child(3){transition-delay:.24s}
+@media (max-width:900px){.prof-roles{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -433,7 +445,7 @@ footer{
                   <div class="demo-ligne"><span class="demo-nom">Chloé P.</span><i class="v"></i><i class="o"></i><i class="v"></i><i class="o"></i><i class="v"></i><i class="v"></i></div>
                   <div class="demo-ligne"><span class="demo-nom">Adam S.</span><i class="o"></i><i class="v"></i><i class="v"></i><i class="o"></i><i class="v"></i><i class="v"></i></div>
                   <div class="demo-bulle"><b>Inès M. — Fractions</b>Origine probable : <b>fractions égales</b> (6e), elle-même liée à la notion de fraction (CM1).</div>
-                  <div class="demo-badge">26 parcours personnalisés générés</div>
+                  <div class="demo-badge">26 parcours prêts à distribuer</div>
                   <div class="demo-groupes">
                     <div class="g1"><b>Groupe 1 — Fractions</b><strong>9 élèves</strong></div>
                     <div class="g2"><b>Groupe 2 — Proportionnalité</b><strong>8 élèves</strong></div>
@@ -518,9 +530,9 @@ footer{
         </div>
         <div class="etapes-panneaux">
           <article id="etapes-p1" class="etapes-panneau"><h3><span>01</span>Évaluer</h3><p>En début d'année scolaire, les élèves réalisent une évaluation en classe. Elle permet d'identifier précisément les acquis et les difficultés de chacun.</p></article>
-          <article id="etapes-p2" class="etapes-panneau"><h3><span>02</span>Diagnostiquer</h3><p>Chaque résultat est analysé afin d'identifier les micro-compétences non maîtrisées et leurs causes. Le professeur dispose d'un diagnostic précis pour chaque élève.</p></article>
-          <article id="etapes-p3" class="etapes-panneau"><h3><span>03</span>Remédier</h3><p>Stud'Éval construit automatiquement un parcours de remédiation personnalisé. Chaque élève travaille uniquement les compétences qu'il doit renforcer.</p></article>
-          <article id="etapes-p4" class="etapes-panneau"><h3><span>04</span>Consolider</h3><p>Des exercices d'entraînement permettent d'ancrer durablement les acquis et de renforcer les compétences.</p></article>
+          <article id="etapes-p2" class="etapes-panneau"><h3><span>02</span>Diagnostiquer</h3><p>Chaque résultat est analysé afin d'identifier les micro-compétences non maîtrisées et leurs causes. Le professeur reçoit un diagnostic précis pour chaque élève.</p></article>
+          <article id="etapes-p3" class="etapes-panneau"><h3><span>03</span>Remédier</h3><p>Stud'Éval prépare un parcours de remédiation personnalisé, que le professeur distribue à ses élèves. Chaque élève travaille uniquement les compétences qu'il doit renforcer.</p></article>
+          <article id="etapes-p4" class="etapes-panneau"><h3><span>04</span>Consolider</h3><p>Des exercices d'entraînement permettent d'ancrer durablement les acquis et de renforcer les compétences. Le professeur suit les progrès de chacun.</p></article>
         </div>
         <button type="button" class="etapes-pause" aria-label="Mettre l'animation en pause"><span class="demo-icone-pause" aria-hidden="true"></span></button>
       </div>
@@ -552,6 +564,32 @@ footer{
           </svg>
         </div>
       </figure>
+    </div>
+  </section>
+
+  <!-- ===================== CÔTÉ PROFESSEUR ===================== -->
+  <section class="prof-section" aria-labelledby="titre-prof">
+    <div class="contenu">
+      <span class="etiquette">Côté professeur</span>
+      <h2 id="titre-prof">Le professeur reste aux commandes.</h2>
+      <p class="section-texte">Stud'Éval fait le travail d'analyse ; les décisions pédagogiques restent celles du professeur. C'est lui qui connaît ses élèves, c'est lui qui les accompagne.</p>
+      <ol class="prof-roles">
+        <li class="reveal">
+          <span class="prof-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+          <h3><span>1</span>Il reçoit le diagnostic</h3>
+          <p>Pour sa classe et pour chaque élève : ce qui est acquis, ce qui ne l'est pas encore, et d'où vient la difficulté.</p>
+        </li>
+        <li class="reveal">
+          <span class="prof-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg></span>
+          <h3><span>2</span>Il distribue les parcours</h3>
+          <p>Stud'Éval prépare un parcours de remédiation pour chaque élève. Le professeur le consulte, puis le distribue à ses élèves.</p>
+        </li>
+        <li class="reveal">
+          <span class="prof-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <h3><span>3</span>Il suit et il intervient</h3>
+          <p>Il voit qui avance et qui bloque. Quand un élève est en difficulté sur une fiche, il est prévenu et peut l'aider.</p>
+        </li>
+      </ol>
     </div>
   </section>
 
