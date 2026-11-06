@@ -284,6 +284,21 @@ footer.pied{background:#16224A;color:#C9D2EA;border-top:0;padding:3rem 0 0;font-
 }
 @media (max-width:480px){.vt-chiffres{grid-template-columns:1fr 1fr}.vt-anneau{grid-column:1/-1;justify-self:center}.vt-stat{border-left:0;padding-left:0}.vt-stat strong{font-size:1.6rem}}
 @media (prefers-reduced-motion:reduce){.vt *{animation:none!important}}
+
+/* ---------- Données et déploiement : deux cartes côte à côte ---------- */
+.duo-cartes{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.carte-info{background:#fff;border:1px solid var(--bleu-pale);border-radius:var(--rayon);padding:1.5rem 1.6rem 1.6rem;box-shadow:0 .5rem 1.4rem rgba(22,34,74,.06)}
+.carte-ico{display:flex;width:2.6rem;height:2.6rem;border-radius:.7rem;background:var(--bleu-pale);color:var(--bleu);align-items:center;justify-content:center}
+.carte-ico svg{width:1.35rem;height:1.35rem;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.carte-info h3{margin-top:1rem;font-size:1.15rem}
+.carte-info p{margin-top:.5rem;color:var(--encre-douce);font-size:.98rem}
+.duo-cartes .carte-info:nth-child(2){transition-delay:.12s}
+.deux-cartes-porte{margin-top:1.6rem;color:var(--encre-douce)}
+.deux-cartes-porte strong{color:var(--encre)!important}
+.deux-cartes-porte a{font-weight:700;text-decoration:none}
+.deux-cartes-porte a:hover{text-decoration:underline}
+.deux-cartes{border-bottom:1px solid var(--bleu-pale)}
+@media (max-width:760px){.duo-cartes{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -368,25 +383,22 @@ footer.pied{background:#16224A;color:#C9D2EA;border-top:0;padding:3rem 0 0;font-
     </div>
   </section>
 
-  <!-- ===================== CONFORME ET SEREIN ===================== -->
-  <section class="section-fond" aria-labelledby="titre-conforme">
+  <!-- ===================== DONNÉES ET DÉPLOIEMENT : DEUX CARTES ===================== -->
+  <section class="section-fond deux-cartes">
     <div class="contenu">
-      <h2 id="titre-conforme">Des données limitées au strict nécessaire</h2>
-      <p class="section-texte">Aucun e-mail élève à collecter&nbsp;: chaque élève accède à Stud'Éval grâce à un code personnel. Seules les données nécessaires au fonctionnement du service sont collectées, et les données sont hébergées en France.</p>
-    </div>
-  </section>
-
-  <!-- ===================== DÉPLOYER SANS FRICTION ===================== -->
-  <section aria-labelledby="titre-deployer">
-    <div class="contenu">
-      <h2 id="titre-deployer">Un déploiement simple et rapide</h2>
-      <p class="section-texte">Rien à installer&nbsp;: Stud'Éval fonctionne directement depuis un navigateur, sur les ordinateurs et tablettes de l'établissement. Commencez avec l'offre gratuite «&nbsp;Un prof, une classe&nbsp;», puis déployez progressivement Stud'Éval au sein de votre établissement.</p>
-    </div>
-  </section>
-
-  <section aria-labelledby="titre-porte">
-    <div class="contenu" style="text-align:center">
-      <p class="section-texte" style="margin:0 auto"><strong style="color:var(--encre)">Vous souhaitez d'abord tester Stud'Éval&nbsp;?</strong> Découvrez l'offre gratuite «&nbsp;Un prof, une classe&nbsp;» — <a href="contact.html">un professeur, une classe, jusqu'à 40 élèves</a>.</p>
+      <div class="duo-cartes">
+        <article class="carte-info reveal" aria-labelledby="titre-conforme">
+          <span class="carte-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <h3 id="titre-conforme">Des données limitées au strict nécessaire</h3>
+          <p>Aucun e-mail élève à collecter&nbsp;: chaque élève accède à Stud'Éval grâce à un code personnel. Seules les données nécessaires au fonctionnement du service sont collectées, et les données sont hébergées en France.</p>
+        </article>
+        <article class="carte-info reveal" aria-labelledby="titre-deployer">
+          <span class="carte-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="13" height="10" rx="1.5"/><path d="M6 18h6M9 14v4"/><rect x="16.5" y="8" width="5" height="10" rx="1.2"/></svg></span>
+          <h3 id="titre-deployer">Un déploiement simple et rapide</h3>
+          <p>Rien à installer&nbsp;: Stud'Éval fonctionne directement depuis un navigateur, sur les ordinateurs et tablettes de l'établissement. Commencez avec l'offre gratuite «&nbsp;Un prof, une classe&nbsp;», puis déployez progressivement Stud'Éval au sein de votre établissement.</p>
+        </article>
+      </div>
+      <p class="deux-cartes-porte"><strong style="color:var(--encre)">Vous souhaitez d'abord tester Stud'Éval&nbsp;?</strong> Découvrez l'offre gratuite «&nbsp;Un prof, une classe&nbsp;» — <a href="contact.html">un professeur, une classe, jusqu'à 40 élèves</a>.</p>
     </div>
   </section>
 
