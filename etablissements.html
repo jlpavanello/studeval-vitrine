@@ -299,6 +299,21 @@ footer.pied{background:#16224A;color:#C9D2EA;border-top:0;padding:3rem 0 0;font-
 .deux-cartes-porte a:hover{text-decoration:underline}
 .deux-cartes{border-bottom:1px solid var(--bleu-pale)}
 @media (max-width:760px){.duo-cartes{grid-template-columns:1fr}}
+
+/* ---------- Trois actions pour l'établissement ---------- */
+.actions-etab{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:1.1rem;margin-top:1.4rem}
+.action-etab{background:#fff;border:1px solid var(--bleu-pale);border-radius:var(--rayon);padding:1.4rem 1.4rem 1.5rem;display:flex;flex-direction:column;
+  box-shadow:0 .5rem 1.4rem rgba(22,34,74,.06)}
+.action-etab h3{margin-top:.9rem;font-size:1.08rem}
+.action-etab p{margin-top:.45rem;color:var(--encre-douce);font-size:.95rem;flex:1}
+.action-boutons{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem}
+.action-boutons .btn{padding:.55rem .95rem;font-size:.88rem;white-space:nowrap}
+.action-boutons{gap:.4rem}
+button.btn{cursor:pointer;background:none;font-family:var(--display)}
+button.btn.btn-ligne{background:#fff}
+.action-copie{margin-top:.5rem!important;font-size:.85rem!important;color:#1F7A4A!important;flex:0!important;min-height:1.2em}
+.actions-etab .action-etab:nth-child(2){transition-delay:.1s}.actions-etab .action-etab:nth-child(3){transition-delay:.2s}
+@media (max-width:900px){.actions-etab{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -398,7 +413,30 @@ footer.pied{background:#16224A;color:#C9D2EA;border-top:0;padding:3rem 0 0;font-
           <p>Rien à installer&nbsp;: Stud'Éval fonctionne directement depuis un navigateur, sur les ordinateurs et tablettes de l'établissement. Commencez avec l'offre gratuite «&nbsp;Un prof, une classe&nbsp;», puis déployez progressivement Stud'Éval au sein de votre établissement.</p>
         </article>
       </div>
-      <p class="deux-cartes-porte"><strong style="color:var(--encre)">Vous souhaitez d'abord tester Stud'Éval&nbsp;?</strong> Découvrez l'offre gratuite «&nbsp;Un prof, une classe&nbsp;» — <a href="contact.html">un professeur, une classe, jusqu'à 40 élèves</a>.</p>
+      <div class="actions-etab">
+        <div class="action-etab reveal">
+          <span class="carte-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5"/><path d="M12 14.6v.1"/></svg></span>
+          <h3>Vous avez des questions&nbsp;?</h3>
+          <p>Écrivez-nous&nbsp;: nous vous répondrons pour préparer le déploiement dans votre établissement.</p>
+          <div class="action-boutons"><a class="btn btn-plein" href="contact.html">Nous écrire</a></div>
+        </div>
+        <div class="action-etab reveal">
+          <span class="carte-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="M8.2 10.8l7.6-4.1M8.2 13.2l7.6 4.1"/></svg></span>
+          <h3>Partagez Stud'Éval avec vos professeurs</h3>
+          <p>Envoyez-leur le lien de l'offre gratuite «&nbsp;Un prof, une classe&nbsp;».</p>
+          <div class="action-boutons">
+            <a class="btn btn-plein" href="mailto:?subject=D%C3%A9couvrez%20Stud%27%C3%89val%20%3A%20un%20acc%C3%A8s%20gratuit%20avec%20une%20classe&amp;body=Bonjour%2C%0A%0AJe%20vous%20propose%20de%20d%C3%A9couvrir%20Stud%27%C3%89val%2C%20un%20outil%20d%27%C3%A9valuation%20et%20de%20rem%C3%A9diation%20en%20math%C3%A9matiques.%20L%27offre%20gratuite%20%C2%AB%20Un%20prof%2C%20une%20classe%20%C2%BB%20permet%20de%20l%27essayer%20avec%20une%20classe%2C%20jusqu%27%C3%A0%2040%20%C3%A9l%C3%A8ves.%0A%0APour%20cr%C3%A9er%20votre%20acc%C3%A8s%20%3A%20https%3A//app.stud-eval.fr/inscription-gratuit%0A%0ABien%20cordialement%2C">Envoyer par e-mail</a>
+            <button type="button" class="btn btn-ligne action-copier" data-lien="https://app.stud-eval.fr/inscription-gratuit">Copier le lien</button>
+          </div>
+          <p class="action-copie" role="status" aria-live="polite"></p>
+        </div>
+        <div class="action-etab reveal">
+          <span class="carte-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-4 7 4v13"/><path d="M9.5 21v-5h5v5M9 11h.01M15 11h.01"/></svg></span>
+          <h3>Créer l'espace de mon établissement</h3>
+          <p>Ouvrez votre espace de direction et invitez vos professeurs.</p>
+          <div class="action-boutons"><a class="btn btn-plein" href="https://app.stud-eval.fr/inscription-direction">Créer l'espace</a></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -538,6 +576,22 @@ footer.pied{background:#16224A;color:#C9D2EA;border-top:0;padding:3rem 0 0;font-
     requestAnimationFrame(image);
   }
   new IntersectionObserver(function(e){ if (e[0].isIntersecting) lancer(); }, {threshold:.4}).observe(bloc);
+})();
+</script>
+<script>
+/* « Copier le lien » : copie l'adresse de l'offre gratuite et le dit sous le bouton.
+   Si le navigateur refuse la copie automatique, l'adresse s'affiche pour être copiée à la main. */
+(function(){
+  var b = document.querySelector(".action-copier");
+  if (!b) return;
+  var info = b.closest(".action-etab").querySelector(".action-copie");
+  b.addEventListener("click", function(){
+    var lien = b.getAttribute("data-lien");
+    function fait(){ info.textContent = "Lien copié ✓ — vous pouvez le coller dans un message ou sur l'ENT."; }
+    function aLaMain(){ info.textContent = "Copiez ce lien : " + lien; }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(lien).then(fait, aLaMain);
+    else aLaMain();
+  });
 })();
 </script>
 </body>
