@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pour les établissements — Stud'Éval</title>
-<meta name="description" content="Stud'Éval donne aux équipes de mathématiques un instrument commun : mesurer les lacunes, organiser la remédiation, constater les progrès. 250 € par classe et par an.">
+<meta name="description" content="Stud'Éval donne aux équipes de mathématiques un instrument commun : mesurer les lacunes, organiser la remédiation, constater les progrès. À partir de 190 € par classe et par an.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&display=swap" rel="stylesheet">
@@ -316,6 +316,27 @@ button.btn.btn-ligne{background:#fff}
 @media (max-width:900px){.actions-etab{grid-template-columns:1fr}}
 
 .tarif-equivalent{margin-top:.35rem;font-family:var(--display);font-weight:600;color:var(--encre)}
+
+/* ---------- Tarif : trois paliers selon le nombre de classes ---------- */
+.paliers{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2rem;text-align:center;align-items:stretch}
+.palier{position:relative;background:#fff;border:1px solid var(--bleu-pale);border-radius:var(--rayon);padding:1.8rem 1.3rem 1.5rem;
+  box-shadow:0 .5rem 1.4rem rgba(22,34,74,.06);display:flex;flex-direction:column}
+.palier-avant{border:2px solid var(--bleu);box-shadow:0 .9rem 2.2rem rgba(47,99,245,.16)}
+.palier-badge{position:absolute;top:-.75rem;left:50%;transform:translateX(-50%);background:var(--bleu);color:#fff;border-radius:999px;padding:.22rem .8rem;
+  font-family:var(--display);font-size:.72rem;font-weight:700;white-space:nowrap}
+.palier-nom{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--encre)}
+.palier-plage{font-family:var(--display);font-size:.88rem;color:var(--encre-douce);margin-top:.2rem}
+.palier-prix{margin-top:1rem;font-family:var(--display);font-weight:800;font-size:clamp(2rem,4vw,2.6rem);color:var(--bleu);line-height:1.1}
+.palier-prix small{display:block;font-size:.36em;font-weight:700;color:var(--encre-douce);margin-top:.25rem}
+.palier-eleve{margin-top:.5rem;font-size:.85rem;color:var(--encre);font-weight:600}
+.palier-exemple{margin-top:auto;padding-top:1rem;border-top:1px solid #EEF1F7;font-size:.84rem;color:var(--encre-douce)}
+.palier-exemple b{color:var(--encre)}
+.palier-eleve+.palier-exemple{margin-top:1rem}
+.paliers .palier:nth-child(2){transition-delay:.1s}.paliers .palier:nth-child(3){transition-delay:.2s}
+.tarif-inclus{margin-top:1.6rem}
+.tarif-inclus p{font-family:var(--display);font-weight:700;color:var(--encre)}
+.tarif-inclus .tarif-degressif span{background:#fff;border:1px solid var(--bleu-pale)}
+@media (max-width:860px){.paliers{grid-template-columns:1fr;max-width:26rem;margin-left:auto;margin-right:auto;gap:1.6rem}}
 </style>
 </head>
 <body>
@@ -446,10 +467,35 @@ button.btn.btn-ligne{background:#fff}
   <section class="section-fond" aria-labelledby="titre-tarif">
     <div class="contenu" style="text-align:center">
       <h2 id="titre-tarif">Un tarif simple</h2>
-      <div class="tarif-carte reveal">
-        <p class="tarif-prix">250&nbsp;€ <small>par classe et par an</small></p>
-        <p class="tarif-equivalent">soit environ 7&nbsp;€ par élève pour une classe de 35</p>
-        <p class="tarif-detail">Le tarif comprend les deux évaluations de l'année&nbsp;: une évaluation de rentrée scolaire et une évaluation de fin d'année scolaire.</p>
+      <p class="section-texte" style="margin:.8rem auto 0">Un prix par classe, qui baisse avec le nombre de classes équipées.</p>
+      <div class="paliers">
+        <div class="palier reveal">
+          
+          <p class="palier-nom">Petit établissement</p>
+          <p class="palier-plage">De 1 à 9 classes</p>
+          <p class="palier-prix">250&nbsp;€ <small>par classe et par an</small></p>
+          <p class="palier-eleve">soit 10&nbsp;€ par élève pour une classe de 25</p>
+          <p class="palier-exemple">Exemple&nbsp;: un lycée professionnel de 8 classes de Seconde<br><b>2 000&nbsp;€ par an</b></p>
+        </div>
+        <div class="palier palier-avant reveal">
+          <span class="palier-badge">Le plus courant</span>
+          <p class="palier-nom">Établissement</p>
+          <p class="palier-plage">De 10 à 19 classes</p>
+          <p class="palier-prix">220&nbsp;€ <small>par classe et par an</small></p>
+          <p class="palier-eleve">soit 8,80&nbsp;€ par élève pour une classe de 25</p>
+          <p class="palier-exemple">Exemple&nbsp;: un collège de 16 classes<br><b>3 520&nbsp;€ par an</b></p>
+        </div>
+        <div class="palier reveal">
+          
+          <p class="palier-nom">Grand établissement</p>
+          <p class="palier-plage">20 classes et plus</p>
+          <p class="palier-prix">190&nbsp;€ <small>par classe et par an</small></p>
+          <p class="palier-eleve">soit 7,60&nbsp;€ par élève pour une classe de 25</p>
+          <p class="palier-exemple">Exemple&nbsp;: une cité scolaire de 26 classes<br><b>4 940&nbsp;€ par an</b></p>
+        </div>
+      </div>
+      <div class="tarif-inclus reveal">
+        <p>Chaque tarif comprend les deux évaluations de l'année.</p>
         <div class="tarif-degressif">
           <span>Évaluation de rentrée scolaire<br><b>incluse</b></span>
           <span>Évaluation de fin d'année scolaire<br><b>incluse</b></span>
