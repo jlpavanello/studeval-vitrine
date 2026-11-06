@@ -211,6 +211,32 @@ footer{
 .footer-bloc a{color:var(--encre-douce);text-decoration:none}
 .footer-bloc a:hover{color:var(--bleu);text-decoration:underline}
 .footer-bas{border-top:1px solid var(--bleu-pale);padding-top:1.4rem;color:var(--encre-douce);font-size:.88rem}
+
+/* ---------- Appel final : l'encadré bleu ---------- */
+.appel-carte{background:linear-gradient(135deg,#4A7BF7 0%,#2F63F5 45%,#2350DB 100%);color:#fff;border-radius:1.6rem;
+  padding:clamp(2.2rem,5vw,3.6rem) clamp(1.4rem,4vw,3rem);box-shadow:0 1.2rem 2.6rem rgba(47,99,245,.25)}
+.appel-carte h2{color:#fff;max-width:31rem;text-wrap:balance;margin:0 auto;font-size:clamp(1.5rem,3.2vw,2.1rem)!important;line-height:1.2}
+.appel-carte .section-texte{color:rgba(255,255,255,.88);max-width:36rem;margin:1rem auto 0}
+.appel-carte .btn-plein{background:#fff;color:var(--encre)}
+.appel-carte .btn-plein:hover{background:#EEF2FC}
+
+.appel{text-align:center}
+.appel .hero-actions{margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* ---------- Bas de page commun (fond marine, comme la maquette) ---------- */
+footer.pied{background:#16224A;color:#C9D2EA;border-top:0;padding:3rem 0 0;font-family:var(--display);font-size:.88rem}
+.pied-haut{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
+.pied p{margin:0}
+.pied-logo{display:flex;align-items:center;gap:.45rem;font-weight:800;font-size:1.45rem;color:#fff;letter-spacing:-.01em}
+.pied-logo svg{width:1.05rem;height:1.2rem;fill:#8FB0FF}
+.pied-marque p+p{margin-top:.7rem;line-height:1.65}
+.pied a{color:#C9D2EA;text-decoration:none}
+.pied a:hover{color:#fff;text-decoration:underline}
+.pied a.pied-mail{color:#fff;font-weight:700}
+.pied nav{display:flex;flex-direction:column;gap:.5rem;align-items:flex-start}
+.pied-titre{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#fff;margin-bottom:.35rem!important}
+.pied-bas{border-top:1px solid rgba(255,255,255,.12);margin-top:2.6rem;padding-top:1.2rem;padding-bottom:1.4rem;font-size:.8rem;color:#98A3C4}
+@media (max-width:720px){.pied-haut{grid-template-columns:1fr 1fr}.pied-marque{grid-column:1/-1}}
 </style>
 </head>
 <body>
@@ -322,30 +348,47 @@ footer{
     </div>
   </section>
 
+  <!-- ===================== APPEL FINAL (commun à toutes les pages) ===================== -->
+  <section class="final appel" aria-labelledby="titre-essai">
+    <div class="contenu">
+      <div class="appel-carte">
+      <h2 id="titre-essai">Testez Stud'Éval gratuitement avec une classe</h2>
+      <p class="section-texte">Profitez de l'offre gratuite «&nbsp;Un prof, une classe&nbsp;» et découvrez Stud'Éval avec une classe jusqu'à 40 élèves.</p>
+      <div class="hero-actions">
+        <a class="btn btn-plein" href="https://app.stud-eval.fr/inscription-gratuit">Demander mon accès gratuit</a>
+      </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<footer>
-  <div class="contenu footer-coords">
-    <div class="footer-bloc">
-      <p class="footer-marque">Stud'Éval</p>
-      <p>SAS Stud'Éval <em>(en cours de création)</em><br>173 rue de Courcelles, 75017 Paris</p>
+<footer class="pied">
+  <div class="contenu pied-haut">
+    <div class="pied-marque">
+      <p class="pied-logo"><svg viewBox="0 0 16 18" aria-hidden="true"><rect x="0" y="10" width="3.4" height="8" rx="1"/><rect x="6" y="5" width="3.4" height="13" rx="1"/><rect x="12" y="0" width="3.4" height="18" rx="1"/></svg>Stud’Éval</p>
+      <p>SAS Stud'Éval (en cours de création)<br>173 rue de Courcelles, 75017 Paris</p>
+      <p><a class="pied-mail" href="mailto:contact@stud-eval.fr">contact@stud-eval.fr</a></p>
     </div>
-    <div class="footer-bloc">
-      <p class="footer-titre">Contact</p>
-      <p><a href="mailto:contact@stud-eval.fr">contact@stud-eval.fr</a></p>
-    </div>
-    <div class="footer-bloc">
-      <p class="footer-titre">Informations</p>
-      <nav aria-label="Liens légaux">
-        <a href="rgpd.html">RGPD &amp; données</a><br>
-        <a href="mentions-legales.html">Mentions légales</a><br>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+    <nav aria-label="Pages du site">
+      <p class="pied-titre">Stud’Éval</p>
+      <a href="comment-ca-marche.html">Comment ça marche</a>
+      <a href="demonstration.html">Démonstration</a>
+      <a href="professeurs.html">Pour les professeurs</a>
+      <a href="etablissements.html">Pour les établissements</a>
+      <a href="espace-eleve.html">Espace élève</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <nav aria-label="Informations">
+      <p class="pied-titre">Informations</p>
+      <a href="rgpd.html">RGPD &amp; données</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://app.stud-eval.fr/app/eleve">Connexion élève</a>
+      <a href="https://app.stud-eval.fr/app/prof">Connexion professeur</a>
+    </nav>
   </div>
-  <div class="contenu footer-bas">
-    <p>© 2026 Stud'Éval — Tous droits réservés.</p>
-  </div>
+  <div class="contenu pied-bas">© 2026 Stud'Éval — Tous droits réservés.</div>
 </footer>
 
 <script>
