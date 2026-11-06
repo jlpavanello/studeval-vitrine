@@ -265,7 +265,9 @@ footer{
 .zl[data-etat="pret"] .zl-continuer,.zl[data-etat="clic"] .zl-continuer{background:var(--bleu)}
 .zl[data-etat="clic"] .zl-continuer{transform:scale(.94)}
 .zl[data-etat="moi"] .zl-code{opacity:0;transform:translateY(-.6rem)}
-.zl[data-etat="moi"] .zl-moi{opacity:1;transform:none}
+.zl[data-etat="moi"] .zl-moi{opacity:1;transform:none;transition-delay:.4s}
+.zl[data-etat="moi"] .zl-code{transition-delay:0s}
+.zl[data-etat="vide"] .zl-code{transition-delay:.45s}
 .zl[data-etat="moi"] .zl-oui{animation:zl-pouls 1.4s ease-in-out .8s 2}
 @keyframes zl-tape{from{transform:scale(.8)}to{transform:none}}
 @keyframes zl-pouls{0%,100%{box-shadow:0 0 0 0 rgba(47,99,245,.45)}50%{box-shadow:0 0 0 .4rem rgba(47,99,245,0)}}
@@ -580,10 +582,16 @@ footer.pied{background:#16224A;color:#C9D2EA;border-top:0;padding:3rem 0 0;font-
     plus_tard(function(){ bloc.setAttribute("data-etat", "moi"); }, t + 950);
     plus_tard(function(){ if (visible) scene(); }, t + 5200);
   }
+  /* Elle démarre dès qu'un cinquième de l'encart est visible (en haut de la page
+     élève, on n'en voit qu'un tiers à l'arrivée), et elle ne repart pas de zéro au
+     moindre défilement : elle ne s'arrête que si l'encart quitte tout à fait l'écran. */
+  var enCours = false;
   new IntersectionObserver(function(e){
-    visible = e[0].isIntersecting;
-    if (visible) scene(); else arreter();
-  }, {threshold:.4}).observe(bloc);
+    var r = e[0].intersectionRatio;
+    visible = e[0].isIntersecting && r > 0;
+    if (visible && r >= .2 && !enCours){ enCours = true; scene(); }
+    else if (!visible){ enCours = false; arreter(); }
+  }, {threshold:[0, .2]}).observe(bloc);
 })();
 </script>
 <script>
