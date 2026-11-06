@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pour les établissements — Stud'Éval</title>
-<meta name="description" content="Stud'Éval donne aux équipes de mathématiques un instrument commun : mesurer les lacunes, organiser la remédiation, constater les progrès. 8 € par élève et par an.">
+<meta name="description" content="Stud'Éval donne aux équipes de mathématiques un instrument commun : mesurer les lacunes, organiser la remédiation, constater les progrès. 250 € par classe et par an.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&display=swap" rel="stylesheet">
@@ -193,7 +193,7 @@ footer{
 
 /* Carte tarif */
 .tarif-carte{
-  max-width:30rem;margin:2.2rem auto 0;text-align:center;background:var(--blanc);
+  max-width:36rem;margin:2.2rem auto 0;text-align:center;background:var(--blanc);
   border:2px solid var(--bleu);border-radius:var(--rayon);padding:2.2rem 1.8rem
 }
 .tarif-prix{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,5vw,3rem);color:var(--bleu);line-height:1.1}
@@ -314,6 +314,8 @@ button.btn.btn-ligne{background:#fff}
 .action-copie{margin-top:.5rem!important;font-size:.85rem!important;color:#1F7A4A!important;flex:0!important;min-height:1.2em}
 .actions-etab .action-etab:nth-child(2){transition-delay:.1s}.actions-etab .action-etab:nth-child(3){transition-delay:.2s}
 @media (max-width:900px){.actions-etab{grid-template-columns:1fr}}
+
+.tarif-equivalent{margin-top:.35rem;font-family:var(--display);font-weight:600;color:var(--encre)}
 </style>
 </head>
 <body>
@@ -445,12 +447,12 @@ button.btn.btn-ligne{background:#fff}
     <div class="contenu" style="text-align:center">
       <h2 id="titre-tarif">Un tarif simple</h2>
       <div class="tarif-carte reveal">
-        <p class="tarif-prix">8&nbsp;€ <small>par élève et par an</small></p>
-        <p class="tarif-detail">Deux campagnes sont recommandées dans l'année, mais vous pouvez en organiser davantage, sans coût supplémentaire. Début d'année, mi-parcours, fin d'année&nbsp;: à vous de choisir le rythme qui correspond à votre établissement.</p>
+        <p class="tarif-prix">250&nbsp;€ <small>par classe et par an</small></p>
+        <p class="tarif-equivalent">soit environ 7&nbsp;€ par élève pour une classe de 35</p>
+        <p class="tarif-detail">Le tarif comprend les deux évaluations de l'année&nbsp;: une évaluation de rentrée scolaire et une évaluation de fin d'année scolaire.</p>
         <div class="tarif-degressif">
-          <span>2 campagnes<br><b>4&nbsp;€ / campagne</b></span>
-          <span>3 campagnes<br><b>2,67&nbsp;€ / campagne</b></span>
-          <span>Campagnes supplémentaires<br><b>incluses</b></span>
+          <span>Évaluation de rentrée scolaire<br><b>incluse</b></span>
+          <span>Évaluation de fin d'année scolaire<br><b>incluse</b></span>
         </div>
       </div>
     </div>
