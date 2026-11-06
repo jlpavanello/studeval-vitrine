@@ -384,6 +384,29 @@ footer{
 
 /* Boutons « Visiter l'espace … » sous les blocs professeur et élève */
 .bloc-lien{margin-top:1.6rem}
+
+/* ---------- Deux évaluations par an : les 4 barres avancent ensemble ---------- */
+.evo{max-width:40rem;margin:2.4rem auto 0;text-align:left;background:#fff;border:1px solid var(--bleu-pale);border-radius:var(--rayon);
+  padding:1.4rem 1.6rem 1.6rem;box-shadow:0 .8rem 2rem rgba(22,34,74,.07)}
+.evo-entete{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.6rem 1.2rem;font-family:var(--display);font-size:.95rem}
+.evo-legende{display:flex;gap:1rem;font-size:.85rem;color:var(--encre-douce)}
+.evo-legende i{display:inline-block;width:.65rem;height:.65rem;border-radius:50%;margin-right:.35rem;vertical-align:middle}
+.evo-pastille-debut{background:#C9D6FB}.evo-pastille-fin{background:var(--bleu)}
+.evo-lignes{list-style:none;margin-top:1.1rem;display:flex;flex-direction:column;gap:1.1rem}
+.evo-tete{display:flex;justify-content:space-between;gap:1rem;font-family:var(--display);font-size:.92rem;margin-bottom:.45rem}
+.evo-val{color:var(--encre-douce);white-space:nowrap;font-variant-numeric:tabular-nums}
+.evo-val b{color:var(--bleu)}
+.evo-barre{position:relative;height:.7rem;border-radius:999px;background:#EEF2FC}
+.evo-debut{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:#C9D6FB}
+.evo-progres{position:absolute;top:0;bottom:0;border-radius:0 999px 999px 0;background:var(--bleu)}
+.evo-curseur{position:absolute;top:50%;width:1.3rem;height:1.3rem;margin:-.65rem 0 0 -.65rem;border-radius:50%;background:#fff;border:.25rem solid var(--bleu);
+  box-shadow:0 0 0 .35rem rgba(47,99,245,.18)}
+.evo-arrive .evo-curseur{animation:evo-pulse .7s ease-out}
+.evo-arrive .evo-val b{animation:evo-pop .5s ease-out}
+@keyframes evo-pulse{0%{box-shadow:0 0 0 .35rem rgba(47,99,245,.18)}50%{box-shadow:0 0 0 .8rem rgba(47,99,245,.25)}100%{box-shadow:0 0 0 .35rem rgba(47,99,245,.18)}}
+@keyframes evo-pop{0%{transform:scale(1)}40%{transform:scale(1.25)}100%{transform:scale(1)}}
+.evo-val b{display:inline-block}
+@media (prefers-reduced-motion:reduce){.evo *{animation:none!important}}
 </style>
 </head>
 <body>
@@ -614,12 +637,34 @@ footer{
     </div>
   </section>
 
-  <!-- ===================== DEUX CAMPAGNES PAR AN ===================== -->
-  <section aria-labelledby="titre-campagnes">
+  <!-- ===================== DEUX ÉVALUATIONS PAR AN ===================== -->
+  <section aria-labelledby="titre-evaluations">
     <div class="contenu" style="text-align:center">
       <span class="etiquette">Sur l'année</span>
-      <h2 id="titre-campagnes">Deux campagnes d'évaluation par an</h2>
-      <p class="section-texte" style="margin:0 auto">En début et en fin d'année scolaire, le même instrument de mesure. D'une campagne à l'autre, la progression de chaque élève se constate objectivement — elle ne s'estime plus.</p>
+      <h2 id="titre-evaluations">Deux évaluations par an</h2>
+      <p class="section-texte" style="margin:0 auto">En début et en fin d'année scolaire, le même instrument de mesure. D'une évaluation à l'autre, la progression de chaque élève se constate objectivement — elle ne s'estime plus.</p>
+      <figure class="evo" aria-label="Exemple fictif d'une classe de 5e : Nombres et calculs de 48 % à 71 %, Fractions de 35 % à 64 %, Proportionnalité de 52 % à 69 %, Géométrie de 61 % à 74 %.">
+        <figcaption class="evo-entete"><b>Exemple fictif — une classe de 5e, même référentiel</b>
+          <span class="evo-legende"><span><i class="evo-pastille-debut"></i>Début d'année</span><span><i class="evo-pastille-fin"></i>Fin d'année</span></span></figcaption>
+        <ul class="evo-lignes" aria-hidden="true">
+          <li class="evo-ligne" data-debut="48" data-fin="71">
+            <div class="evo-tete"><span>Nombres et calculs</span><span class="evo-val">48&nbsp;% → <b>71&nbsp;%</b></span></div>
+            <div class="evo-barre"><span class="evo-debut" style="width:48%"></span><span class="evo-progres" style="left:48%;width:23%"></span><span class="evo-curseur" style="left:71%"></span></div>
+          </li>
+          <li class="evo-ligne" data-debut="35" data-fin="64">
+            <div class="evo-tete"><span>Fractions</span><span class="evo-val">35&nbsp;% → <b>64&nbsp;%</b></span></div>
+            <div class="evo-barre"><span class="evo-debut" style="width:35%"></span><span class="evo-progres" style="left:35%;width:29%"></span><span class="evo-curseur" style="left:64%"></span></div>
+          </li>
+          <li class="evo-ligne" data-debut="52" data-fin="69">
+            <div class="evo-tete"><span>Proportionnalité</span><span class="evo-val">52&nbsp;% → <b>69&nbsp;%</b></span></div>
+            <div class="evo-barre"><span class="evo-debut" style="width:52%"></span><span class="evo-progres" style="left:52%;width:17%"></span><span class="evo-curseur" style="left:69%"></span></div>
+          </li>
+          <li class="evo-ligne" data-debut="61" data-fin="74">
+            <div class="evo-tete"><span>Géométrie</span><span class="evo-val">61&nbsp;% → <b>74&nbsp;%</b></span></div>
+            <div class="evo-barre"><span class="evo-debut" style="width:61%"></span><span class="evo-progres" style="left:61%;width:13%"></span><span class="evo-curseur" style="left:74%"></span></div>
+          </li>
+        </ul>
+      </figure>
     </div>
   </section>
 
@@ -826,6 +871,50 @@ footer{
     if (e[0].isIntersecting){ cadre.classList.add("origine-anime"); obs.disconnect(); }
   }, {threshold:.5});
   obs.observe(cadre);
+})();
+</script>
+<script>
+/* Deux évaluations par an : les 4 barres partent ensemble du niveau de début d'année
+   et avancent jusqu'au niveau de fin d'année, curseur et pourcentage compris, puis
+   recommencent. Sans JavaScript, ou si le visiteur réduit les animations, les barres
+   restent simplement affichées à leur valeur finale. */
+(function(){
+  var bloc = document.querySelector(".evo");
+  if (!bloc || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var lignes = [].map.call(bloc.querySelectorAll(".evo-ligne"), function(li){
+    return { li: li, d: Number(li.dataset.debut), f: Number(li.dataset.fin),
+             progres: li.querySelector(".evo-progres"), curseur: li.querySelector(".evo-curseur"),
+             valeur: li.querySelector(".evo-val b") };
+  });
+  var CYCLE = 5200, DEPART = 500, MONTEE = 2300, RETOUR = 4600;
+  var debutTemps = null, arrive = false;
+  function adoucir(x){ return x < .5 ? 4*x*x*x : 1 - Math.pow(-2*x + 2, 3) / 2; }
+  function dessiner(p){
+    lignes.forEach(function(l){
+      var v = l.d + (l.f - l.d) * p;
+      l.progres.style.width = (v - l.d) + "%";
+      l.curseur.style.left = v + "%";
+      l.valeur.textContent = Math.round(v) + "\u00a0%";
+    });
+  }
+  function image(maintenant){
+    if (debutTemps === null) debutTemps = maintenant;
+    var t = (maintenant - debutTemps) % CYCLE, p;
+    if (t < DEPART) p = 0;
+    else if (t < DEPART + MONTEE) p = adoucir((t - DEPART) / MONTEE);
+    else if (t < RETOUR) p = 1;
+    else p = 1 - (t - RETOUR) / (CYCLE - RETOUR);
+    var auBout = t >= DEPART + MONTEE && t < RETOUR;
+    if (auBout !== arrive){ arrive = auBout; bloc.classList.toggle("evo-arrive", auBout); }
+    dessiner(Math.max(0, Math.min(1, p)));
+    requestAnimationFrame(image);
+  }
+  function lancer(){ dessiner(0); requestAnimationFrame(image); }
+  if (!("IntersectionObserver" in window)) { lancer(); return; }
+  var obs = new IntersectionObserver(function(e){
+    if (e[0].isIntersecting){ lancer(); obs.disconnect(); }
+  }, {threshold:.4});
+  obs.observe(bloc);
 })();
 </script>
 </body>
