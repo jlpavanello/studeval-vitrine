@@ -407,6 +407,24 @@ footer{
 @keyframes evo-pop{0%{transform:scale(1)}40%{transform:scale(1.25)}100%{transform:scale(1)}}
 .evo-val b{display:inline-block}
 @media (prefers-reduced-motion:reduce){.evo *{animation:none!important}}
+
+/* ---------- « Conçu par un enseignant » : bandeau et coches vertes ---------- */
+.garanties{background:var(--fond);border-top:1px solid var(--bleu-pale);border-bottom:1px solid var(--bleu-pale);padding:2.6rem 0}
+.garanties h2{font-size:clamp(1.05rem,2vw,1.2rem)}
+.garanties .reassurances{margin-top:1.3rem;gap:.7rem}
+.garanties .reassurances li{display:inline-flex;align-items:center;gap:.55rem;padding:.55rem 1.1rem;box-shadow:0 .2rem .8rem rgba(22,34,74,.05)}
+.garanties .reassurances li::before{content:none}
+.garantie-coche{width:1.15rem;height:1.15rem;flex:none}
+.garantie-coche circle{fill:#1F9D5C}
+.garantie-coche path{fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- Appel final : l'encadré bleu ---------- */
+.appel-carte{background:linear-gradient(135deg,#4A7BF7 0%,#2F63F5 45%,#2350DB 100%);color:#fff;border-radius:1.6rem;
+  padding:clamp(2.2rem,5vw,3.6rem) clamp(1.4rem,4vw,3rem);box-shadow:0 1.2rem 2.6rem rgba(47,99,245,.25)}
+.appel-carte h2{color:#fff;max-width:31rem;text-wrap:balance;margin:0 auto;font-size:clamp(1.5rem,3.2vw,2.1rem)!important;line-height:1.2}
+.appel-carte .section-texte{color:rgba(255,255,255,.88);max-width:36rem;margin:1rem auto 0}
+.appel-carte .btn-plein{background:#fff;color:var(--encre)}
+.appel-carte .btn-plein:hover{background:#EEF2FC}
 </style>
 </head>
 <body>
@@ -669,26 +687,28 @@ footer{
   </section>
 
   <!-- ===================== RÉASSURANCES ===================== -->
-  <section aria-labelledby="titre-reassurances">
+  <section class="garanties" aria-labelledby="titre-reassurances">
     <div class="contenu" style="text-align:center">
       <h2 id="titre-reassurances">Conçu par un enseignant, pensé pour l'école</h2>
       <ul class="reassurances">
-        <li>437 micro-compétences classées du CP à la 3e</li>
-        <li>Mode DYS natif</li>
-        <li>Codes élèves sans email</li>
-        <li>Données hébergées en France</li>
-        <li>RGPD dès la conception</li>
+        <li><svg class="garantie-coche" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10"/><path d="M5.8 10.4l2.7 2.7 5.7-5.9"/></svg>437 micro-compétences classées du CP à la 3e</li>
+        <li><svg class="garantie-coche" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10"/><path d="M5.8 10.4l2.7 2.7 5.7-5.9"/></svg>Mode DYS natif</li>
+        <li><svg class="garantie-coche" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10"/><path d="M5.8 10.4l2.7 2.7 5.7-5.9"/></svg>Codes élèves sans email</li>
+        <li><svg class="garantie-coche" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10"/><path d="M5.8 10.4l2.7 2.7 5.7-5.9"/></svg>Données hébergées en France</li>
+        <li><svg class="garantie-coche" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10"/><path d="M5.8 10.4l2.7 2.7 5.7-5.9"/></svg>RGPD dès la conception</li>
       </ul>
     </div>
   </section>
 
   <!-- ===================== APPEL FINAL ===================== -->
-  <section class="section-fond final" aria-labelledby="titre-final">
+  <section class="final appel" aria-labelledby="titre-final">
     <div class="contenu">
+      <div class="appel-carte">
       <h2 id="titre-final" style="font-size:clamp(1.3rem,2.6vw,1.7rem)">Testez Stud'Éval gratuitement avec une classe</h2>
       <p class="section-texte">Profitez de l'offre gratuite «&nbsp;Un prof, une classe&nbsp;» et découvrez Stud'Éval avec une classe jusqu'à 40 élèves.</p>
       <div class="hero-actions">
         <a class="btn btn-plein" href="https://app.stud-eval.fr/inscription-gratuit">Demander mon accès gratuit</a>
+      </div>
       </div>
     </div>
   </section>
